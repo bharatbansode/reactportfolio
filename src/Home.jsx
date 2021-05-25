@@ -1,0 +1,34 @@
+import React from 'react';
+import imgsrc from '../src/images/home.jpg';
+import Common from './Common';
+import Sdata from './Sdata';
+import Card from './Card';
+
+const Home = () => {
+    
+    //const img = `https://source.unsplash.com/700x350/?computer`;
+
+    return (
+        <>
+            <Common name='Grow your business with' imgsrc={imgsrc} visit='./services' btname="Get Started" />
+            <div className="my-5">
+                <h1 className="text-center">Our Services</h1>
+            </div>
+            <div className="container-fluid mb-5">
+                <div className="row">
+                    <div className="col-10 mx-auto">
+                        <div className="row gy-4">
+                            {
+                                Sdata.map((val, ind) => {
+                                  return <Card key={ind} imgsrc={val.imgsrc} title={val.title} />  
+                                })
+                            }                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default Home;
